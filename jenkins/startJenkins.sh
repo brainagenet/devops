@@ -13,4 +13,4 @@ if [ -f ${JENKINS_LOG}/server.log ]; then
     mv ${JENKINS_LOG}/server.log ${JENKINS_LOG}/server.log.${CURDT}
 fi
 
-nohup ${JAVA_HOME}/bin/java ${JAVA_OPTS} -jar ${JENKINS_BASE}/jenkins-${JENKINS_VER}.war ${JENKINS_OPTS} > ${JENKINS_LOG}/server.log 2>&1 &
+nohup ${JAVA_HOME}/bin/java ${JAVA_OPTS} -jar ${JENKINS_BASE}/app/jenkins-${JENKINS_VER}.war ${JENKINS_OPTS} > ${JENKINS_LOG}/server.log 2>&1 &

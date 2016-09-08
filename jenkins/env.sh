@@ -3,7 +3,7 @@
 
 # export JAVA_HOME="/usr/java/jdk1.8.0"
 export JENKINS_HOME="/data/jenkins/data"
-export JENKINS_BASE="/engine/jenkins/app"
+export JENKINS_BASE="/engine/jenkins"
 export JENKINS_LOG="${JENKINS_BASE}/logs"
 export JENKINS_VER="2.7.3.LTS"
 
