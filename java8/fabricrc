@@ -1,0 +1,6 @@
+user = ubuntu
+password = '!ubuntu#12'
+port = 4222
+
+remote_path = /usr/java
+bin_filename = jdk-8u102-linux-x64.tar.gz
