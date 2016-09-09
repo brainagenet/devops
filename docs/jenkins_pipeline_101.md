@@ -420,3 +420,96 @@ INFO: Jenkins is fully up and running
 ```
 
 설치하고 실행이 완료되었습니다.
+
+## 설치 후, 기본 설정
+
+http://jenkins.host:28080/jenkins에 접근하면 다음과 같은 화면을 볼 수 있습니다. Jenkins 2부터 초기 설정을 간단하게 할 수 있도록 변경된 부분입니다.
+
+![jenkins-get-started.png](images/jenkins-get-started.png)
+
+위 화면의 `Administrator password` 에 최초 실행시 출력되는 Password를 입력하면 됩니다. 해당 값을 모를 경우 아래의 명령어를 실행하여 확인할 수 있습니다.
+
+```bash
+$ cat /data/jenkins/data/secrets/initialAdminPassword
+```
+
+`Administrator password`를 입력하고 `Continue` 버튼을 누르면, Jenkins의 기능을 확장해주는 Plugin 설치에 대해 나옵니다. 권장하는 plugin을 설치할 것인가? 직접 선택하여 설치할 것인가?를 선택할 수 있습니다.
+
+![jenkins-get-started-customize-jenkins.png](images/jenkins-get-started-customize-jenkins.png)
+
+기본적으로 권장하는 것을 선택하도록 하겠습니다. `Install suggested plugins` 버튼을 클릭합니다.
+
+![jenkins-get-started-install-plugins](images/jenkins-get-started-install-plugins.png)
+
+어떤 Plugin들이 설치되는지 확인할 수 있습니다. 설치가 완료되면 자동으로 관리자 사용자를 생성하는 화면이 나옵니다. 여기에 다음과 같이 입력합니다.
+
+![jenkins-get-started-create-admin-user.png](images/jenkins-get-started-create-admin-user.png)
+
+| 항목 | 값 |
+| --- | --- |
+| 계정명 | admin |
+| 암호/암호확인 | !admin#12 |
+| 이름 | Administrator |
+| 이메일 주소 | admin@yourdomain |
+
+값을 입력한 후, `Continue as admin` 버튼을 클릭하면 아래와 같은 화면이 나옵니다.
+
+![jenkins-get-started-ready.png](images/jenkins-get-started-ready.png)
+
+`Start using Jenkins` 버튼을 클릭하여 다음으로 진행합니다. 기본적인 설치가 완료되고 아래와 같이 메인 화면이 나옵니다.
+
+> Jenkins 2 로 넘어가면서 변경된 것이 없어보입니다.
+
+![jenkins-first-main-screen.png](images/jenkins-first-main-screen.png)
+
+### Global Tool Configuration 설정
+
+이전 버전과 달리 `Jenkins 관리 > 시스템 설정`에 있던 각종 Tool들의 설정이 `Jenkins 관리` > `Global Tool Configuration` 으로 옮겨왔습니다.
+
+> 소소한 변화입니다.
+
+### JDK 설정
+
+JDK 항목의 `Add JDK` 버튼을 클릭하여 설치되어 있는 JDK를 설정합니다.
+
+![jenkins-global-tool-config-jdk.png](images/jenkins-global-tool-config-jdk.png)
+
+### Git 설정
+
+OS 상에 git이 설치되어 있는지 확인해 봅니다.
+
+```bash
+$ git --version
+git version 2.5.0
+
+# 버전 확인이 안된 경우, 설치해 줍니다.
+$ sudo apt-get update -y && sudo apt-get install git
+```
+
+위와 같이 Version 정보를 확인할 수 있으면 됩니다.
+
+### Gradle 설정
+
+Gradle을 사용하지 않기 때문에 설정하지 않습니다.
+
+> 최근 Spring Boot 등 다양한 프로젝트에서 Gradle을 지원하고 있지만 개인적으로는 명시적으로 보기가 좋은 Maven을 선호하여 여기서는 사용하지 않습니다. 이후 필요할 경우, 문서를 갱신할 예정입니다.
+
+### Apache Ant 설정
+
+위에서 설치한 Apache Ant의 경로를 아래와 같이 입력합니다.
+
+![jenkins-global-tool-config-ant.png](images/jenkins-global-tool-config-ant.png)
+
+### Apache Maven 설정
+
+위에서 설치한 Apache Maven의 경로를 아래와 같이 입력합니다.
+
+![jenkins-global-tool-config-maven.png](images/jenkins-global-tool-config-maven.png)
+
+위의 설정을 모두 수행하였다면 `Save` 버튼을 클릭합니다.
+
+
+ 
+
+
+
